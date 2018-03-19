@@ -30,6 +30,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="VNr-Bx-ycA" kind="show" identifier="mySegue" id="77E-ld-Aae"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -47,7 +50,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116.25" y="118.30985915492958"/>
+            <point key="canvasLocation" x="114" y="162"/>
+        </scene>
+        <!--Detailed View Controller-->
+        <scene sceneID="nfy-eI-g7W">
+            <objects>
+                <viewController id="VNr-Bx-ycA" customClass="detailedViewController" customModule="HackwichFive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="alr-t2-ond">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kapoleiKalapawai" translatesAutoresizingMaskIntoConstraints="NO" id="MeF-oI-yTg">
+                                <rect key="frame" x="40" y="58" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="3K1-WX-Ie8"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="MeF-oI-yTg" id="TQB-Rw-EyY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BNU-RB-i7l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="923" y="162"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="kapoleiKalapawai" width="1300" height="830"/>
+    </resources>
 </document>

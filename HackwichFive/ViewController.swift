@@ -12,13 +12,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //define an array variable using an array literal with 5 items of type string
  
     @IBOutlet weak var tableView: UITableView!
-    var colorarray = ["Red", "Blue", "Yellow", "Green", "Purple"]
+    var colorarray = ["Kapolei Kalapawai"]
+    
+    
+    var restaurantImageData = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        
 //set VC as Delegate
 //self.tableView.datasource = self
+        
+        
+        let path = Bundle.main.path( forResource: "Property List", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!)
+        
+        
+        restaurantImageData = dict!.object(forKey:"restaurantImages") as! [String]
+  
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,5 +55,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = text
         return cell
     }
-}
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+    }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+            if segue.identifier == "mySeague"
+            {
+                let s1 = segue.destination as! detailedViewController
+                let imageIndex = tableView.indexPathForSelectedRow?.row
+                s1.imagePass = restaurantImageData[imageIndex!]
+            }
+        }
+        
+    }
+    
 
